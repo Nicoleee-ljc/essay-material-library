@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5E6E6"/>
+      <stop offset="55%" stop-color="#FAF0EB"/>
+      <stop offset="100%" stop-color="#E8EDE8"/>
+    </linearGradient>
+    <linearGradient id="bookCover" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D4A5A5"/>
+      <stop offset="100%" stop-color="#B88A8A"/>
+    </linearGradient>
+    <linearGradient id="pageEdge" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F5F0E8"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="6" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.18"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 粉彩渐变背景（iOS 会自动裁圆角，这里用纯色填充） -->
+  <rect width="512" height="512" fill="url(#bg)"/>
+
+  <!-- 书本主体（带透视，左封面 + 叱侧页） -->
+  <g transform="translate(120, 130)" filter="url(#softShadow)">
+    <!-- 右侧书页 -->
+    <path d="M 150 8 L 280 28 L 280 272 L 150 252 Z" fill="url(#pageEdge)" stroke="#E8D8C8" stroke-width="2"/>
+    <!-- 左侧封面（打开的封面） -->
+    <path d="M 150 8 L 20 28 L 20 272 L 150 252 Z" fill="url(#bookCover)" stroke="#A57575" stroke-width="2"/>
+    <!-- 书脊中缝 -->
+    <line x1="150" y1="8" x2="150" y2="252" stroke="#8A5555" stroke-width="2.5" opacity="0.5"/>
+
+    <!-- 左封面装饰：书名横线 + 书签 -->
+    <rect x="40" y="60" width="90" height="5" rx="2.5" fill="#FAF0EB" opacity="0.9"/>
+    <rect x="40" y="80" width="70" height="4" rx="2" fill="#FAF0EB" opacity="0.7"/>
+    <rect x="40" y="98" width="80" height="4" rx="2" fill="#FAF0EB" opacity="0.7"/>
+
+    <!-- 书签（从顶部伸出） -->
+    <path d="M 100 0 L 100 50 L 112 38 L 124 50 L 124 0 Z" fill="#7A9A7A"/>
+
+    <!-- 右侧书页上的横线（表示文字） -->
+    <rect x="170" y="60" width="90" height="3" rx="1.5" fill="#D8C8B8" opacity="0.8"/>
+    <rect x="170" y="78" width="80" height="3" rx="1.5" fill="#D8C8B8" opacity="0.7"/>
+    <rect x="170" y="96" width="95" height="3" rx="1.5" fill="#D8C8B8" opacity="0.7"/>
+    <rect x="170" y="114" width="70" height="3" rx="1.5" fill="#D8C8B8" opacity="0.7"/>
+    <rect x="170" y="132" width="88" height="3" rx="1.5" fill="#D8C8B8" opacity="0.7"/>
+    <rect x="170" y="150" width="60" height="3" rx="1.5" fill="#D8C8B8" opacity="0.7"/>
+
+    <!-- 引号装饰（强调"素材"主题） -->
+    <text x="220" y="220" text-anchor="middle" fill="#D4A5A5" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="700" opacity="0.85">❝</text>
+  </g>
+</svg>
